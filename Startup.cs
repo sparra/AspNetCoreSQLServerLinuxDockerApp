@@ -23,7 +23,7 @@ namespace AspNetCorePostgreSQLDockerApp
                 .AddJsonFile("appsettings.json")
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
 
-            builder.AddEnvironmentVariables();
+            builder.AddEnvironmentVariables("ASPNETCORE_");
             Configuration = builder.Build();
         }
 
