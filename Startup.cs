@@ -87,7 +87,7 @@ namespace AspNetCorePostgreSQLDockerApp
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseDatabaseErrorPage();
+                //app.UseDatabaseErrorPage();
                 app.UseBrowserLink();
             }
             else
@@ -137,12 +137,13 @@ namespace AspNetCorePostgreSQLDockerApp
                     template: "{controller=Home}/{action=Index}/{id?}");
 
                 //https://github.com/aspnet/JavaScriptServices/blob/dev/samples/angular/MusicStore/Startup.cs
-                routes.MapSpaFallbackRoute("spa-fallback", new { controller = "Customers", action = "Index" });
+                //routes.MapSpaFallbackRoute("spa-fallback", new { controller = "Customers", action = "Index" });
 
-                // routes.MapRoute(
-                //     name: "spa-fallback",
-                //     template: "{*anything}",
-                //     defaults: new { controller="Customers", action="Index" });
+
+                routes.MapRoute(
+                    name: "spa-fallback",
+                    template: "{*anything}",
+                    defaults: new { controller = "Customers", action = "Index" });
             });
 
             customersDbSeeder.SeedAsync(app.ApplicationServices).Wait();
