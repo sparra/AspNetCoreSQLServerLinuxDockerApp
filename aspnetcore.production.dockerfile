@@ -18,9 +18,9 @@ RUN ["dotnet", "build"]
 
 # RUN ["dotnet", "ef", "database", "update"]
 
-EXPOSE 5000/tcp
+EXPOSE 80/tcp
 
-ENTRYPOINT ["dotnet", "run", "--server.urls", "http://0.0.0.0:5000"]
+ENTRYPOINT ["dotnet", "run", "--server.urls", "http://0.0.0.0:80"]
 
 # Build the image:
 # docker build -f aspnetcore.production.dockerfile -t [yourDockerHubID]/dotnet:1.0.0

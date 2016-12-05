@@ -7,21 +7,24 @@ services:
     image: 'aspnetcoreapp'
     build:
       context: .
-      dockerfile: aspnetcore.development.dockerfile
+      dockerfile: aspnetcore.production.dockerfile
     volumes:
       - .:/var/www/aspnetcoreapp
     ports:
-     - "5000:5000"
+     - "80:80"
     depends_on:
-     - "postgres"
+     - "sqlserverlinux"
     networks:
       - aspnetcoreapp-network
 
-  postgres:
-    container_name: 'postgres'
-    image: postgres
+  sqlserverlinux:
+    container_name: 'sqlserverlinux'
+    ports:
+      - "1433:1433"
+    image: microsoft/mssql-server-linux
     environment:
-      POSTGRES_PASSWORD: password
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=yourStrong(!)Password123
     networks:
       - aspnetcoreapp-network
 
