@@ -14,7 +14,7 @@ RUN ["npm", "install"]
 
 RUN ["dotnet", "restore"]
 
-RUN ["dotnet", "build"]
+# RUN ["dotnet", "build"]
 
 # RUN ["dotnet", "ef", "database", "update"]
 
