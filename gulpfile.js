@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 
-gulp.task("move-node-modules", () => {
+gulp.task("move-node-modules", function() {
     gulp.src([
             'core-js/client/shim.min.js',
             'systemjs/dist/system-polyfills.js',
