@@ -8,7 +8,7 @@ gulp.task("move-node-modules", () => {
             'reflect-metadata/Reflect.js',
             'rxjs/**',
             'zone.js/dist/**',
-            '@angular/**',
+            '@angular/**'
         ], 
         {
             cwd: "node_modules/**"
