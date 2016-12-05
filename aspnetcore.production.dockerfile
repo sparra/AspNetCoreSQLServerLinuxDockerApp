@@ -20,7 +20,7 @@ RUN ["dotnet", "build"]
 
 EXPOSE 80/tcp
 
-ADD runapp.sh /var/www/aspnetcoreapp
+#COPY runapp.sh /var/www/aspnetcoreapp/
 RUN chmod +x /var/www/aspnetcoreapp/runapp.sh
 
 ENTRYPOINT ["/var/www/aspnetcoreapp/runapp.sh"]
