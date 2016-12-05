@@ -21,10 +21,10 @@ RUN ["dotnet", "build"]
 EXPOSE 80/tcp
 
 #COPY runapp.sh /var/www/aspnetcoreapp/
-RUN chmod +x /var/www/aspnetcoreapp/runapp.sh
-
-ENTRYPOINT ["/var/www/aspnetcoreapp/runapp.sh"]
-#ENTRYPOINT ["dotnet", "run", "--server.urls", "http://0.0.0.0:80"]
+#RUN chmod +x /var/www/aspnetcoreapp/runapp.sh
+RUN ["dotnet", "restore"]
+# ENTRYPOINT ["/var/www/aspnetcoreapp/runapp.sh"]
+ENTRYPOINT ["dotnet", "run", "--server.urls", "http://0.0.0.0:80"]
 
 # Build the image:
 # docker build -f aspnetcore.production.dockerfile -t [yourDockerHubID]/dotnet:1.0.0
